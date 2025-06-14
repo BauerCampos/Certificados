@@ -1,72 +1,46 @@
-# 🏦 Credit Risk Prediction Project
+# 🚀 Naïve Bayes - Credit Risk Prediction  
 
-Predicting credit risk using machine learning algorithms. Developed as part of my AI specialization journey.
+## 📌 Overview  
+Implementation of a Naïve Bayes classifier to predict credit risk, achieving **84.5% accuracy** (Gaussian distribution).
 
-## 📌 Table of Contents
-- [Business Problem](#-business-problem)
-- [Dataset](#-dataset)
-- [Algorithms](#-Algorithms)
-- [Results](#-results)
-- [How to Run](#-how-to-run)
-- [Future Improvements](#-future-improvements)
-- [License](#-license)
+## Dependencies
+- pandas
+- sklearn
+- pickle
+- yellowbrick
 
-## 🎯 Business Problem
-**Objective:** Build a classifier to predict whether a bank customer is likely to default on a loan.
+## ⚙️ Hyperparameters  
+python
+GaussianNB(
+    priors=None,           # Class priors (automatically adjusted)
+    var_smoothing=1e-9     # Default stability for zero-variance features
+)
 
-**Impact:**
-- Reduce financial losses for banks
-- Enable better loan approval decisions
-- Minimize risk exposure
+No hyperparameter tuning was needed for this use case
 
-## 📊 Dataset
-**Source:** [Credit Risk Dataset on Kaggle](https://www.kaggle.com/datasets/laotse/credit-risk-dataset)
+## Preprocessing
+**Categorical Encoding**
+-Challenge: Naïve Bayes assumes numerical inputs.
+-Methods Tested:
 
-**Features:**
-- `person_age`: Customer age
-- `person_income`: Annual Income
-- `person_home_ownership`: Home ownership
-- `person_emp_length`: Employment length (in years)
-- `loan_intent`: Purpose of the loan
-- `loan_grade`:Loan grade
-- `loan_amnt`: Loan amount requested
-- `loan_int_rate`: Interest rate
-- `loan_percent_income`: Percent income
-- `cb_person_default_on_file`: Historical default
-- `cb_preson_cred_hist_length`: Credit history length
-- `loan_status`: Target variable (0 = low risk, 1 = high risk)
+|     Encoding      |  Accuracy  |
+|-------------------|------------|
+|      One-Hot      |   ~80.0%   |
+|  Target Encoding  |   ~84.5%   |
 
-## 🤖 Algorithms
-- [Naïve Bayes]
-- [Decision Tree]
-- [Random Forest]
-- [KNN]
-- [Logistic Regression]
-- [SVM]
-- [Neural Network]
 
-## 📈 Results
-**Performance Comparison:**
+**Feature Correlation Insight**
+High correlation between:
+- `person_home_ownership`
+- `loan_intent`
+- `loan_grade`
 
-|         Model         | Accuracy | Precision | Recall | F1-Score |
-|-----------------------|----------|-----------|--------|----------|
-| Random Forest         |   0.935  |    0.94   |  0.94  |   0.93   |
-| Neural Network        |   0.926  |    0.93   |  0.93  |   0.92   |
-| SVM                   |   0.910  |    0.91   |  0.91  |   0.90   |
-| KNN                   |   0.900  |    0.90   |  0.90  |   0.89   |
-| Decision Tree         |   0.898  |    0.90   |  0.90  |   0.90   |
-| Logistic Regression   |   0.868  |    0.86   |  0.87  |   0.86   |
-| Naïve Bayes           |   0.845  |    0.85   |  0.85  |   0.85   |
+Solution: Target encoding preserved relationships while reducing dimensionality vs. one-hot.
 
-## 🔧 Future Improvements
-**Embeddings**
-Embeddings are a powerful technique for encoding categorical variables, particularly effective for nominal data. Research and practical applications demonstrate their superiority over traditional methods (e.g., one-hot encoding) when preprocessing data for AI models, especially in deep learning.
+**Key Takeaways**
+Gaussian outperformed Bernoulli, suggesting near-normal data distributions.
 
-**Multiple Imputation**
-Two fields contained missing values: person_emp_length and loan_int_rate.
+##Performance Metrics
 
-    person_emp_length: Nulls were imputed with 0 (assuming nulls indicated no employment history).
-
-    loan_int_rate: Nulls were replaced with the global mean, as these likely represented lost data.
-
-For higher accuracy, regression-based imputation (e.g., MICE) could predict missing values individually by leveraging relationships between variables.
+![Confusion Matrix](images/naive_bayes_cm.png)
+![Classification Report](images/naive_bayes_cf.png)
