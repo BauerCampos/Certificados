@@ -36,7 +36,7 @@ Predicting credit risk using machine learning algorithms. Developed as part of m
 - `cb_preson_cred_hist_length`: Credit history length
 - `loan_status`: Target variable (0 = low risk, 1 = high risk)
 
-## Algorithms
+## 🤖 Algorithms
 - [Naïve Bayes]
 - [Decision Tree]
 - [Random Forest]
@@ -58,7 +58,7 @@ Predicting credit risk using machine learning algorithms. Developed as part of m
 | Logistic Regression   |   0.868  |    0.86   |  0.87  |   0.86   |
 | Naïve Bayes           |   0.845  |    0.85   |  0.85  |   0.85   |
 
-## 📈 Future Improvements
+## 🔧 Future Improvements
 **Embeddings**
 Embeddings are a powerful technique for encoding categorical variables, particularly effective for nominal data. Research and practical applications demonstrate their superiority over traditional methods (e.g., one-hot encoding) when preprocessing data for AI models, especially in deep learning.
 
