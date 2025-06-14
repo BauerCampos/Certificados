@@ -20,6 +20,7 @@ No hyperparameter tuning was needed for this use case
 
 ## Preprocessing
 **Categorical Encoding**
+
 -Challenge: Naïve Bayes assumes numerical inputs.
 -Methods Tested:
 
@@ -30,6 +31,7 @@ No hyperparameter tuning was needed for this use case
 
 
 **Feature Correlation Insight**
+
 High correlation between:
 - `person_home_ownership`
 - `loan_intent`
@@ -38,6 +40,7 @@ High correlation between:
 Solution: Target encoding preserved relationships while reducing dimensionality vs. one-hot.
 
 **Key Takeaways**
+
 Gaussian outperformed Bernoulli, suggesting near-normal data distributions.
 
 ## Performance Metrics
