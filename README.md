@@ -46,4 +46,5 @@ Gaussian outperformed Bernoulli, suggesting near-normal data distributions.
 ## Performance Metrics
 
 ![Confusion Matrix](images/naive_bayes_cm.png)
+
 ![Classification Report](images/naive_bayes_cf.png)
