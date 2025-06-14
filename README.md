@@ -5,7 +5,7 @@ Predicting credit risk using machine learning algorithms. Developed as part of m
 ## 📌 Table of Contents
 - [Business Problem](#-business-problem)
 - [Dataset](#-dataset)
-- [Algorithms](#-algorithms)
+- [Algorithms](#-Algorithms)
 - [Results](#-results)
 - [How to Run](#-how-to-run)
 - [Future Improvements](#-future-improvements)
