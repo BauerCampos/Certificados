@@ -37,6 +37,13 @@ Predicting credit risk using machine learning algorithms. Developed as part of m
 - `loan_status`: Target variable (0 = low risk, 1 = high risk)
 
 ## Algorithms
+- [Naïve Bayes]
+- [Decision Tree]
+- [Random Forest]
+- [KNN]
+- [Logistic Regression]
+- [SVM]
+- [Neural Network]
 
 ## 📈 Results
 **Performance Comparison:**
