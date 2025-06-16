@@ -1,15 +1,13 @@
-# 🚀 Naïve Bayes - Credit Risk Prediction  
+# 📏 Logistic Regression - Credit Risk Prediction  
 
-*A data-centric approach to predicting loan defaults with 84.5% accuracy*
+A simple one layer weight based model used to achieve 86.8% accuracy
 
 ## 📌 Overview  
-Implementation of a Gaussian Naïve Bayes classifier to predict credit risk, optimized through iterative preprocessing and algorithm testing. Key achievements:
+Implementation of a **Logistic Regression** classifier to predict high-risk loans. Key wins:
 
-    84.5% accuracy (outperforming baseline models).
+    **86.8% accuracy** (best among tested configurations).
 
-    Target encoding strategy improved accuracy by 4.5% over one-hot encoding.
-
-    Critical data scaling insight: Challenged theoretical assumptions by demonstrating a 3.5% accuracy gain with standardization.
+    **Data Scailing** ensured a 4.8% accuracy increase
 
 Business Impact: This model could help lenders reduce high-risk loan approvals, potentially saving millions in defaults.
 
@@ -22,50 +20,48 @@ Business Impact: This model could help lenders reduce high-risk loan approvals, 
 ## ⚙️ Hyperparameters  
 python
 GaussianNB(
-    priors=None,           # Class priors (automatically adjusted)
-    var_smoothing=1e-9     # Default stability for zero-variance features
+    random_state = 1    #
 )
 
-No hyperparameter tuning was needed for this use case
-
 ## Preprocessing
-**Inconsistent data**
+**Data Cleaning**
 
-Since this database had very little amount of data with clear signs of inconsistent data(the variables person_age and person_emp_length across a few lines) i decided to simply delete those lines as most of them showed signes of inconsistent values on both of the variables
+    **Inconsistent Data**:Dropped illogical records(e.g. person_age / person_emp_length > 100)
 
-**Missing data**
+    **Missing Data**:
+    
+        person_emp_length: Nulls were imputed with 0 (assuming nulls indicated no employment history).
 
-This database had missing data on only two variables, those being person_emp_legth and loan_int_rate, and each variable had it's missing value treated differently given the fact that both had different natures
-
-    person_emp_length: Nulls were imputed with 0 (assuming nulls indicated no employment history).
-
-    loan_int_rate: Nulls were replaced with the global mean, as these likely represented lost data.
+        loan_int_rate: Nulls were replaced with the global mean, as these likely represented lost data.
 
 
-**Encoding**
+**Scailing**
 
-The database used for this project have 3 categorical variables(person_home_ownership, loan_intent and loan_grade), since the Naïve Bayes doesn't handle categorical values the database needed encoding on said variables, on further analysis those variables were classified as nominal variables, this meant there was no value order on any of them which discarded **Label Encoding** as a possibility, further analysis on each variable individually showed that all of them had great isoled impact on the target variable value and for this reason target encoding was the most sucessful option between the two tested methods as showed below
+While testing preprocessing methods with the purpose of training the model it was clear that the technique that showed the biggest positive impact in the algorithm predictive power was the scailing as the table below indicate
 
-|     Encoding      |  Accuracy  |
-|-------------------|------------|
-|      One-Hot      |   ~80.0%   |
-|  Target Encoding  |   ~84.5%   |
+|  Scailing  |  Accuracy  |
+|------------|------------|
+|     No     |   ~82.0%   |
+|  Standard  |   ~86.8%   |
 
-**The Scailing Debate**
+**Categorical Variable Encoding Method**
 
-The theory behind the algorithm Naïve bayes suggest that the scailing of the data is not necessary, but in this case the massive scale difference between variables drastically altered the algorithm performance suggesting there is reason to test the necessity of data scailing when using this algorithm
+Contrary to my expectations the algorithm was very effective dealing with high number of dimensions as the algorythm was effective when trained with one hot encoded data
 
-|     Scailing      |  Accuracy  |
-|-------------------|------------|
-|    No Scailing    |   ~81.0%   |
-| Standard Scailing |   ~84.5%   |
+|  Encoding  |  Accuracy  |
+|------------|------------|
+|  One-Hot   |   ~86.7%   |
+|  Target    |   ~86.8%   |
 
-**Key Takeaways**
 
-Real-world data often defies textbook assumptions—always test empirically.
+
+## Key Takeaways
+
+**Effective with high dimensions**: The algorythm didnt show signs of poor perfomance or low time training efficiency when submitted to a one-hot encoded database
+**Data scale difference**: Data scailing was the key technique to ensure the algorythm good performance
 
 ## Performance Metrics
 
-![Confusion Matrix](images/naive_bayes_cm.png)
+![Confusion Matrix](images/knn_cm.png)
 
-![Classification Report](images/naive_bayes_cf.png)
+![Classification Report](images/knn_cf.png)
