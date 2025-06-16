@@ -5,9 +5,9 @@ A simple one layer weight based model used to achieve 86.8% accuracy
 ## 📌 Overview  
 Implementation of a **Logistic Regression** classifier to predict high-risk loans. Key wins:
 
-    **86.8% accuracy** (best among tested configurations).
+    86.8% accuracy (best among tested configurations).
 
-    **Data Scailing** ensured a 4.8% accuracy increase
+    Data Scailing ensured a 4.8% accuracy increase
 
 Business Impact: This model could help lenders reduce high-risk loan approvals, potentially saving millions in defaults.
 
@@ -26,9 +26,9 @@ GaussianNB(
 ## Preprocessing
 **Data Cleaning**
 
-    **Inconsistent Data**:Dropped illogical records(e.g. person_age / person_emp_length > 100)
+    Inconsistent Data:Dropped illogical records(e.g. person_age / person_emp_length > 100)
 
-    **Missing Data**:
+    Missing Data:
     
         person_emp_length: Nulls were imputed with 0 (assuming nulls indicated no employment history).
 
@@ -58,6 +58,7 @@ Contrary to my expectations the algorithm was very effective dealing with high n
 ## Key Takeaways
 
 **Effective with high dimensions**: The algorythm didnt show signs of poor perfomance or low time training efficiency when submitted to a one-hot encoded database
+
 **Data scale difference**: Data scailing was the key technique to ensure the algorythm good performance
 
 ## Performance Metrics
